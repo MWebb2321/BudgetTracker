@@ -24,7 +24,7 @@ request.onerror = function (e) {
 };
 
 function checkDataBase() {
-  console.log("Check DB involved");
+  console.log("Check DB invoked");
 
   // Open transaction on BudgetStore DB
   let transaction = db.transaction(["BudgetStore"], "readwrite");
@@ -46,10 +46,12 @@ function checkDataBase() {
           "Content-Type": "application/json",
         },
       })
-        .then((response) => response.json)
+        .then((response) => response.json())
         .then((res) => {
           if (res.length !== 0) {
             transaction = db.transaction(["BudgetStore"], "readwrite");
+
+            const currentStore = transaction.objectStore("BudgetStore");
 
             currentStore.clear();
             console.log("Clearing store!");
