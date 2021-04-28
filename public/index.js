@@ -6,7 +6,7 @@ fetch("/api/transaction")
     return response.json();
   })
   .then((data) => {
-    // save db data on global variable
+    // Save db data on global variable
     transactions = data;
 
     populateTotal();
@@ -15,7 +15,7 @@ fetch("/api/transaction")
   });
 
 function populateTotal() {
-  // reduce transaction amounts to a single total value
+  // Reduce transaction amounts to a single total value
   let total = transactions.reduce((total, t) => {
     return total + parseInt(t.value);
   }, 0);
