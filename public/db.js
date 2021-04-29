@@ -70,7 +70,7 @@ request.onsuccess = function (e) {
 
   if (navigator.onLine) {
     console.log("Backend online!");
-    checkDataBase();
+    checkDatabase();
   }
 };
 
@@ -83,4 +83,4 @@ const saveRecord = (record) => {
   store.add(record);
 };
 
-window.addEventListener("online", checkDataBase);
+window.addEventListener("online", checkDatabase);
